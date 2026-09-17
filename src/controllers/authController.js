@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const registerUser = async (req, res) => {
     try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -19,7 +19,8 @@ export const registerUser = async (req, res) => {
     const user = new User ({
         name: name, 
         email: email,
-        password: hashedPassword
+        password: hashedPassword,
+        role
     });
 
     await user.save();
@@ -70,7 +71,7 @@ export const loginUser = async (req, res) => {
     res.cookie("jwt", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sampleSite: "strict",
+        sameSite: "strict",
         maxAge: 90 * 24 * 60 * 60 * 1000 
     });
 
@@ -93,4 +94,37 @@ export const logoutUser = async (req, res) => {
     return res.status(200).json({
         message: "Logout successful"
     });
+};
+
+export const getMe = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select("-password");
+
+        return res.status(200).json({
+            user
+        })
+    }
+    catch(error) {
+        return res.status(500).json({
+            message: "Server error",
+            error: error.message
+        })
+    }
+};
+
+export const getAllUsers = async ( req, res ) => {
+    try {
+        const allUsers = await User.find().select("-password");
+
+            return res.status(200).json({
+                users: allUsers
+            })
+    }
+
+    catch(error) {
+        return res.status(403).json ({
+            message: "Failed to retrieve the users..",
+            error: error.message
+        });
+    }
 };
