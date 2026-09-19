@@ -3,6 +3,7 @@ import express from "express";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import barberRoutes from "./routes/barberRoutes.js";
+import serviceRoutes from "./routes/serviceRoutes.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/barbers", barberRoutes );
+app.use("/api/service", serviceRoutes);
 
 app.get("/", (req, res) => {
     res.json ({
