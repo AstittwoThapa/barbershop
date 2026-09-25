@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar( {title} ) {
 
@@ -15,34 +15,49 @@ export default function Navbar( {title} ) {
 
 
     return (
-        
-        <nav className="navbar navbar-dark bg-dark py-3">
-            <div className="container">
-                <div className=" d-flex justify-content-between align-items-center">
-                <h1 className="navbar-brand mb-0"> {title} </h1>
 
-                <button
-                    className = "navbar-toggler d-lg-none"
-                    onClick={() => setMenuOpen(!menuOpen)}
+ <div className="container">
+
+    <div className="d-flex flex-wrap justify-content-between align-items-center">
+
+        <Link
+            to="/"
+            className="navbar-brand mb-0 fs-3 fw-bold"
+        >
+            {title}
+        </Link>
+
+        <button
+            className="navbar-toggler d-lg-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+        >
+            ☰
+        </button>
+
+        <ul
+            className={`navbar-nav ${
+                menuOpen ? "d-block" : "d-none"
+            } d-lg-flex flex-lg-row gap-lg-3`}
+        >
+            {navbarItems.map((item) => (
+                <li
+                    className="nav-item"
+                    key={item.path}
                 >
-                    ☰
-                    </button>
-                </div>
-    {menuOpen && (
-        <ul className={`navbar-nav ${menuOpen ? "d-block" : "d-none"}d-lg-flex flex-lg-row gap-lg-3 mt-3 mt-lg-0`}> 
-            {navbarItems.map((item) => {
-                return (
-                    <li className="nav-item" key={item.path}>
-                    <Link className="nav-link" to={item.path}>
+                    <Link
+                        className="nav-link"
+                        to={item.path}
+                        onClick={() => setMenuOpen(false)}
+                    >
                         {item.name}
                     </Link>
-                    </li>
-                );
-            })}
+                </li>
+            ))}
         </ul>
-    )}
-            </div>
-        </nav>
-        
+
+    </div>
+
+</div>
+
     );
 }
