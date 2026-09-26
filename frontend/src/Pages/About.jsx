@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function About () {
     return (
 <main>
 
-            {/* Introduction */}
             <section className="py-5 bg-light">
                 <div className="container py-4">
 
@@ -11,11 +12,11 @@ export default function About () {
                         <div className="col-lg-8">
 
                             <h1 className="display-5 fw-bold">
-                                About BarberHub
+                                About Maison du Soin
                             </h1>
 
                             <p className="lead mt-3">
-                                BarberHub makes it easier to discover
+                                Maison du Soin makes it easier to discover
                                 professional barbers and book grooming
                                 services in one place.
                             </p>
@@ -27,8 +28,6 @@ export default function About () {
                 </div>
             </section>
 
-
-            {/* What We Offer */}
             <section className="py-5">
                 <div className="container">
 
@@ -63,7 +62,7 @@ export default function About () {
                                 <div className="card-body p-4">
 
                                     <h3 className="h4 mb-4">
-                                        What BarberHub Offers
+                                        What Maison du Soin Offers
                                     </h3>
 
                                     <ul className="list-group list-group-flush">
@@ -96,8 +95,6 @@ export default function About () {
                 </div>
             </section>
 
-
-            {/* Call To Action */}
             <section className="bg-dark text-white py-5">
                 <div className="container text-center py-4">
 
@@ -111,7 +108,12 @@ export default function About () {
                     </p>
 
                     <button className="btn btn-light btn-lg mt-2">
-                        Explore Barbers
+                        <Link to="/barbers" 
+                            className="btn btn-light btn-lg mt-2"
+                        >
+                            Explore Barbers
+                        </Link>
+                        
                     </button>
 
                 </div>

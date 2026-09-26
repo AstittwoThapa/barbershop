@@ -2,7 +2,7 @@ export default function Barber() {
     const barbers = [
         {
             id: 1,
-            name: "Esnya Adhi-curry",
+            name: "Esnya",
             specialization: "Manicure",
             experience: "10 years",
             available: true
@@ -16,21 +16,21 @@ export default function Barber() {
         },
         {
             id: 3,
-            name: "brb Ak",
+            name: "Aashraya Bista",
             specialization: "Pedicure",
             experience: "2 years",
             available: false
         },
         {
             id: 4,
-            name: "hhh Ad",
+            name: "Pramish Bhattarai",
             specialization: "Manicure",
             experience: "1 year",
             available: true
         },
         {
             id: 5,
-            name: "ayens wha",
+            name: "Cleo Sol",
             specialization: "Haircut",
             experience: "7 years",
             available: false

@@ -15,19 +15,19 @@ export default function Home() {
                         <div className="col-lg-7">
 
                             <p className="text-uppercase fw-bold mb-2">
-                                Welcome to BarberHub
+                                Welcome to Maison du Soin
                             </p>
 
                             <h1 className="display-3 fw-bold">
                                 Your Style.
                                 <br />
-                                Your Barber.
+                                Your Choice.
                             </h1>
 
                             <p className="lead mt-4">
                                 Find professional barbers and grooming
                                 services near you. Discover your next
-                                favorite barber and book your appointment.
+                                favorite professional and book your appointment.
                             </p>
 
 
@@ -144,7 +144,7 @@ export default function Home() {
                     <div className="text-center mb-5">
 
                         <h2 className="fw-bold">
-                            Why BarberHub?
+                            Why Maison du Soin?
                         </h2>
 
                     </div>
